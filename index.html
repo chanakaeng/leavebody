@@ -54,6 +54,7 @@
     $('body').mouseout(function(e){
         if (isUpward) {
             $("#exit").show();
+            isUpward = false;
         }
         mY = e.pageY;
     });
@@ -64,6 +65,7 @@
 
     $('#leave').click(function() {
         $( '#exit' ).hide();
+        isUpward = false;
     });
 </script>
 </body>
