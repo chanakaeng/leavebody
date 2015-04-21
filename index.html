@@ -1,0 +1,70 @@
+<html xmlns="http://www.w3.org/1999/html">
+<script type="text/javascript" src="jquery.js"></script>
+<style>
+    .calColor1 {
+        width: 100%;
+        height: 90px;
+        border: 2px solid #049CDB;
+        background-color: #48c7fb;
+    }
+
+    .eventBox {
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        font-size:9.75px;
+        line-height:11px;
+        cursor:pointer;
+    }
+
+    .eventBox {
+        border:2px solid inherit;
+    }
+</style>
+<body>
+<div id="exit" class="calColor1 eventBox">
+
+  <img src="banner.jpg" width="100%" height="60px">
+    <input type="button" id="stay" value="Stay" />
+    <input type="button" id="leave" value="Close" />
+
+</div>
+<h1>Hi How Are You</h1>
+
+<script>
+    $( document ).ready(function() {
+        $("#exit").hide();
+    });
+
+    var mY = -1;
+    var isUpward = false;
+
+    $('body').mousemove(function(e){
+        isUpward = false;
+
+        if (mY == -1)
+            mY = e.pageY;
+        else {
+            if (e.pageY < mY) {
+                isUpward = true;
+            }
+        }
+    });
+
+    $('body').mouseout(function(e){
+        if (isUpward) {
+            $("#exit").show();
+        }
+        mY = e.pageY;
+    });
+
+    $('#stay').click(function() {
+        window.location = 'https://www.google.com/?gws_rd=ssl'
+    });
+
+    $('#leave').click(function() {
+        $( '#exit' ).hide();
+    });
+</script>
+</body>
+</html>
